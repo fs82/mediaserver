@@ -124,7 +124,7 @@ if [ "$AUTO_SHUTDOWN" = "true" ] || [ "$AUTO_SHUTDOWN" = "yes" ] ; then
 	        	# shutdown
 	        	rm -f $COUNTFILE
 		        logit auto shutdown caused by cron
-        		/sbin/halt -p
+        		/sbin/shutdown -P now
 		        exit 0
 		else
 			# shut down next time
