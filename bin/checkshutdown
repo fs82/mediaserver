@@ -1,0 +1,2 @@
+# Auto shutdown
+*/45 * * * * root /usr/local/sbin/checkshutdown.sh
