@@ -49,9 +49,11 @@ IsDamonActive()
 IsPortInUse()
 {
         for i in $*; do
-                LANG=C netstat -an | grep -q "${myIp}:${i}.*ESTABLISHED$"
-                Err=${?}
-                if [ ${Err} -eq 0 ] ; then
+                Err=`LANG=C netstat -an | grep "${myIp}:${i}" \
+                    | grep -E "ESTABLISHED|FIN_WAIT1|FIN_WAIT2|TIME_WAIT|CLOSE_WAIT" \
+                    | wc -l`
+
+                if [ ${Err} -gt 0 ] ; then
                   logit "Port ${i} is still in use, auto shutdown terminated"
                   return 1
                 fi
