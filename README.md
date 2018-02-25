@@ -19,8 +19,7 @@ This script makes a backup of the mediaserver to a usb disc.
 
 This script checks periodically for open ports and samba connections.
 If there is no activity the server will be shut down automatically. The
-script is inspired by
-[here](https://wiki.ubuntuusers.de/Skripte/Auto_OFF).
+script is inspired by [https://wiki.ubuntuusers.de/Skripte/Auto_OFF](https://wiki.ubuntuusers.de/Skripte/Auto_OFF).
 
 ### Installation
 
