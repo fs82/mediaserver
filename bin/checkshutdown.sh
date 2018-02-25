@@ -64,10 +64,11 @@ IsBusy()
 {
 	# Samba
 	if [ "x$SAMBANETWORK" != "x" ]; then
-		if [ `/usr/bin/smbstatus -b | grep $SAMBANETWORK | wc -l ` != "0" ]; then
-		  logit samba connected, auto shutdown terminated
-	  	  return 1
-		fi
+		smbClients=`/usr/bin/smbstatus -b | grep $SAMBANETWORK | awk '{print $5}' | cut -d: -f2`
+		IsOnline $smbClients
+		if [ "$?" == "1" ]; then
+                	return 1
+        	fi
 	fi
 
 	#damons that always have one process running
