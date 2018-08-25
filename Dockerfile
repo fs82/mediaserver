@@ -22,5 +22,4 @@ VOLUME /config /data
 
 EXPOSE 1030/udp 1900/udp 9000/tcp 5353/udp 443/tcp
 
-COPY ./entrypoint.sh /usr/local/bin
-RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT /usr/local/twonky/twonkyserver
