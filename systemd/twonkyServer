@@ -1,0 +1,12 @@
+[Unit]
+Description=Twonky service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/twonky/twonkystarter
+ExecStop=/usr/local/twonky/twonky.sh stop
+PIDFile=/var/run/mediaserver.pid
+
+[Install]
+WantedBy=multi-user.target
