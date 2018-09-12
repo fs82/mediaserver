@@ -4,7 +4,7 @@ After=syslog.target network.target
 
 [Service]
 Type=forking
-ExecStart=/usr/local/twonky/twonkystarter
+ExecStart=/usr/local/twonky/twonkystarter -appdata /var/twonky
 PIDFile=/var/run/mediaserver.pid
 
 [Install]
