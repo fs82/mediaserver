@@ -27,7 +27,7 @@ find . -mindepth 2 -maxdepth 3 -type d -print0 |
 
         if [[ $err -eq 0 ]]; then
 
-            #Check for folder.jpg and cover.jpg
+            # Check for folder.jpg and cover.jpg
             if [ ! -f $dir/cover.jpg ] && [ ! -f $dir/folder.jpg ]; then
                 str="$str\n\tNeither cover.jpg nor folder.jpg"
                 ((err++))
@@ -37,7 +37,7 @@ find . -mindepth 2 -maxdepth 3 -type d -print0 |
                 cp $dir/folder.jpg $dir/cover.jpg
             fi
 
-            # Check for additional image files
+            # Check for additional files
             files=$(find $dir -maxdepth 1 -type f ! \( -name cover.jpg -o -name folder.jpg \
                 -o -name "*.flac" \
                 -o -name "*.m4a" \
