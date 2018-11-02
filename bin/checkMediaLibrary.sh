@@ -2,10 +2,14 @@
 
 # Counter for number of issues
 issue=0
+count=0
 
 find . -mindepth 2 -maxdepth 3 -type d -print0 |
 {
     while IFS= read -r -d '' dir; do
+        ((count++))
+
+        # Reset variables for loop
         str=""
         err=0
 
@@ -60,7 +64,7 @@ find . -mindepth 2 -maxdepth 3 -type d -print0 |
         [[ $err -ne 0 ]] && ((issue++))
     done
 
-    echo -e "\nSummary: Found $issue direcories with issues"
+    echo -e "\nSummary: Checked $count directories and found $issue issues"
 }
 
 
