@@ -36,7 +36,8 @@ find . -mindepth 2 -maxdepth 3 -type d -print0 |
             # Check for additional image files
             files=$(find $dir -maxdepth 1 -type f ! \( -name cover.jpg -o -name folder.jpg \
                 -o -name "*.flac" \
-                -o -name "*.m4a" \))
+                -o -name "*.m4a" \
+                -o -name "*.mp3" \))
 
             if [[ -n $files ]]; then
                 for file in $files
@@ -53,13 +54,13 @@ find . -mindepth 2 -maxdepth 3 -type d -print0 |
         [[ -z $str ]] && str="is fine"
 
         # Summary for directory
-        echo -e "Directory $dir $str\n"
+        echo -e "Directory $dir $str"
 
         # Store err for global summary
         [[ $err -ne 0 ]] && ((issue++))
     done
 
-    echo -e "Summary: Found $issue direcories with issues"
+    echo -e "\nSummary: Found $issue direcories with issues"
 }
 
 
