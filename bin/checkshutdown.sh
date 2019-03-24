@@ -87,7 +87,7 @@ IsBusy()
 
         # check network-ports
         if [ "x${NETWORKPORTS}" != "x" ]; then
-                myIp=$(LANG=C /sbin/ifconfig | sed -n "/inet addr/ { s|^[a-z ]*:\([0-9\.]*\).*$|\1|p }" | head -n 1)
+                myIp=$(LANG=C /sbin/ifconfig | awk '/inet / {print $2}' | head -n 1)
                 IsPortInUse ${NETWORKPORTS}
                 if [ "$?" == "1" ]; then
                         return 1
