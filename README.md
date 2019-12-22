@@ -27,3 +27,20 @@ script is inspired by [https://wiki.ubuntuusers.de/Skripte/Auto_OFF](https://wik
     - Copy checkshutdown.sh to /usr/local/sbin/
     - Make it executable `chmod u+x checkshutdown.sh`
     - Copy autoshutdown.conf to /etc/
+
+## localBackup.bat
+
+### Description
+
+This batch file runs [restic](https://restic.net) for backup to a local server that is started via wake on lan first.
+The password for the restic repository has to be set as environment variable RESTIC_PASSWORD
+(Systemsteuerung\Benutzerkonten und Jugendschutz\Benutzerkonten -> Eigene Umgebungsvariablen ändern)
+
+## cloudBackup.bat
+
+### Description
+
+This batch file runs [restic](https://restic.net) for backup to a cloud storage. 
+The password for the restic repository has to be set as environment variable RESTIC_PASSWORD
+(Systemsteuerung\Benutzerkonten und Jugendschutz\Benutzerkonten -> Eigene Umgebungsvariablen ändern)
+
